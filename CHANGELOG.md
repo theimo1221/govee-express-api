@@ -5,5 +5,5 @@
   ## **WORK IN PROGRESS**
   * (theimo1221) Update packages
 -->
-## **WORK IN PROGRESS**
+## 0.1.0 (2024-05-01)
 * (theimo1221) Initial Version

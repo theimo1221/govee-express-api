@@ -1,7 +1,7 @@
 {
   "name": "govee-express-api",
   "description": "Exposes an http-api to control local Govee devices",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "files": [
     "lib/**/*"
   ],
@@ -55,4 +55,3 @@
     "typescript": "^5.3.3"
   }
 }
-
