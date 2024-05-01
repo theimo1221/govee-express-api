@@ -80,7 +80,7 @@ export class RestService {
       if (dev === undefined) {
         return res.status(404).send('Device not found or not yet ready');
       }
-      dev.setColor(_req.params.color).catch((err) => {
+      dev.setColor(`#${_req.params.color}`).catch((err) => {
         return res.send(err);
       }).then(() => {
         return res.status(200).send();
