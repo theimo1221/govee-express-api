@@ -33,7 +33,7 @@ export class GoveeService {
     LogService.writeLog(LogLevel.Debug, 'Initializing Goovee-Service');
     this.goveeApi = new Govee({
       discover: true,
-      discoverInterval: 5_000,
+      discoverInterval: 300_000,
       debug: debug,
       listenTo: listenTo,
     });
@@ -69,7 +69,7 @@ export class GoveeService {
     ownDevice.update(d.getState());
 
     d.on(GoveeDeviceEventTypes.StateChange, (data: GoveeDeviceState & GoveeDeviceStateInfo) => {
-      LogService.writeLog(LogLevel.Debug, `Govee ${d.id} state changed`);
+      LogService.writeLog(LogLevel.Debug, `Govee ${d.id} state changed ${JSON.stringify(data)}`);
       this.updateDevice(d, data);
     });
     LogService.writeLog(LogLevel.Debug, `Govee ${d.id} found at address ${d.ipAddr}`);
