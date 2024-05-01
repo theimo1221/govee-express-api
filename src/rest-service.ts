@@ -58,6 +58,7 @@ export class RestService {
     })
 
     this._app.get('/device/:deviceId/brightness/:brightness', async (_req, res) => {
+      console.log(`API Requested brightness: ${_req.params.brightness} for device ${_req.params.deviceId}`);
       const dev: GoveeApiDevice | undefined = GoveeService.device(_req.params.deviceId);
       if (dev === undefined) {
         return res.status(404).send('Device not found or not yet ready');
@@ -74,6 +75,7 @@ export class RestService {
     })
 
     this._app.get('/device/:deviceId/color/:color', async (_req, res) => {
+      console.log(`API Requested color: ${_req.params.color} for device ${_req.params.deviceId}`);
       const dev: GoveeApiDevice | undefined = GoveeService.device(_req.params.deviceId);
       if (dev === undefined) {
         return res.status(404).send('Device not found or not yet ready');
@@ -86,6 +88,7 @@ export class RestService {
     })
 
     this._app.get('/device/:deviceId/on/:state', async (_req, res) => {
+      console.log(`API Requested on: ${_req.params.state} for device ${_req.params.deviceId}`);
       const dev: GoveeApiDevice | undefined = GoveeService.device(_req.params.deviceId);
       if (dev === undefined) {
         return res.status(404).send('Device not found or not yet ready');
