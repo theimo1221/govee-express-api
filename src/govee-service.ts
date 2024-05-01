@@ -70,7 +70,7 @@ export class GoveeService {
 
     d.on(GoveeDeviceEventTypes.StateChange, (data: GoveeDeviceState & GoveeDeviceStateInfo) => {
       LogService.writeLog(LogLevel.Debug, `Govee ${d.id} state changed ${JSON.stringify(data)}`);
-      this.updateDevice(d, data);
+      GoveeService.updateDevice(d, data);
     });
     LogService.writeLog(LogLevel.Debug, `Govee ${d.id} found at address ${d.ipAddr}`);
   }

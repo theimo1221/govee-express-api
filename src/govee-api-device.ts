@@ -54,11 +54,25 @@ export class GoveeApiDevice {
   }
 
   public async turnOn(): Promise<void> {
-    return  this.guardedDevice.turnOn();
+    return new Promise((resolve, reject) => {
+      this.guardedDevice.turnOn().then(() => {
+        resolve();
+        this._actuatorOn = true;
+      }).catch((err) => {
+        reject(err);
+      })
+    })
   }
 
   public async turnOff(): Promise<void> {
-    return this.guardedDevice.turnOff();
+    return new Promise((resolve, reject) => {
+      this.guardedDevice.turnOff().then(() => {
+        resolve();
+        this._actuatorOn = false;
+      }).catch((err) => {
+        reject(err);
+      })
+    })
   }
 
   private get guardedDevice(): GoveeDevice {
